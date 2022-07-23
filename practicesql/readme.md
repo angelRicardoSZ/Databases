@@ -1,4 +1,4 @@
-### SQL commands
+# SQL commands
 
 ### If
 
@@ -17,7 +17,7 @@ CASE
 END AS ALIAS; 
 ```
 
-### Join
+## Join
 
 #### Inner
 
@@ -63,5 +63,104 @@ FROM A
 	FULL JOIN B ON A.key = B.key
 	WHERE A.key IS NULL
 	OR B.key IS NULL
+```
+
+## Where
+
+```sql
+SELECT *
+FROM table
+WHERE id = 1;
+
+SELECT *
+FROM table
+WHERE id > 1;
+
+SELECT *
+FROM table
+WHERE id < 1;
+```
+
+### AND - OR - BETWEEN 
+
+```sql
+SELECT *
+FROM table
+WHERE id > 10
+	AND id < 100;
+
+SELECT *
+FROM table
+WHERE id BETWEEN 10 AND 100;
+
+SELECT *
+FROM users
+WHERE name = "someName"
+	and (
+        lastname = "lastname1"
+        OR
+        lastname = "lastname2"
+    );
+```
+
+### LIKE
+
+```sql
+SELECT *
+FROM users
+WHERE name LIKE "Is%"
+
+SELECT *
+FROM users
+WHERE name LIKE "Is_ael%"  /* en _ puede ir cualquier caracter*/
+
+SELECT *
+FROM users
+WHERE name NOT LIKE "Is_ael%"
+```
+
+### IS - IN
+
+```sql
+SELECT *
+FROM users
+WHERE name IS NULL;
+
+SELECT *
+FROM users
+WHERE name IS NOT NULL;
+
+SELECT *
+FROM users
+WHERE name IN ('NAME1', 'NAME2', 'NAME3');
+```
+
+## ORDER BY
+
+```SQL
+SELECT *
+FROM table
+ORDER BY date;
+
+SELECT *
+FROM table
+ORDER BY date ASC;
+
+SELECT *
+FROM table
+ORDER BY date DESC;
+```
+
+## GROUP BY - LIMIT
+
+```SQL
+SELECT *
+FROM table
+GROUP BY name
+
+SELECT *
+FROM table
+OFFSET 1500
+LIMIT 10000
 ```
 
