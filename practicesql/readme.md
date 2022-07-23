@@ -164,3 +164,25 @@ OFFSET 1500
 LIMIT 10000
 ```
 
+## Distinct
+
+Is used to return only distinct (different) values.
+
+```sql
+SELECT DISTINCT column1, column2, ...
+FROM table_name;
+```
+
+## Window functions
+
+[PostgreSQL's documentation](https://www.postgresql.org/docs/current/tutorial-window.html)
+
+A *window function* performs a calculation across a set of table rows that are somehow related to the current row. This is comparable to the type of calculation that can be done with an aggregate function. However, window functions do not cause rows to become grouped into a single output row like non-window aggregate calls would. Instead, the rows retain their separate identities. Behind the scenes, the window function is able to access more than just the current row of the query result.
+
+```sql
+SELECT coulmn_name1, 
+ window_function(cloumn_name2)
+ OVER([PARTITION BY column_name1] [ORDER BY column_name3]) AS new_column
+FROM table_name;
+```
+
